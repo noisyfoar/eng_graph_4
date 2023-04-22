@@ -225,7 +225,7 @@ int main(int argc, char** argv)
 
     Magick::InitializeMagick(nullptr); // <--- added this line
 
-    if (!GLUTBackendCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, 32, false, "OpenGL tutors")) {
+    if (!GLUTBackendCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, 32, false, "Lesson 24")) {
         return 1;
     }
 
