@@ -1,4 +1,4 @@
-#include <assert.h>
+﻿#include <assert.h>
 
 #include "mesh.h"
 
@@ -48,7 +48,7 @@ void Mesh::Clear()
 
 bool Mesh::LoadMesh(const std::string& Filename)
 {
-    // Удаляем данные предыдущей модели (если она была загружена)
+    // ������� ������ ���������� ������ (���� ��� ���� ���������)
     Clear();
 
     bool Ret = false;
@@ -74,7 +74,7 @@ bool Mesh::InitFromScene(const aiScene* pScene, const std::string& Filename)
     m_Entries.resize(pScene->mNumMeshes);
     m_Textures.resize(pScene->mNumMaterials);
 
-    // Инициализируем меши один за другим
+    // �������������� ���� ���� �� ������
     for (unsigned int i = 0; i < m_Entries.size(); i++) {
         const aiMesh* paiMesh = pScene->mMeshes[i];
         InitMesh(i, paiMesh);
@@ -116,8 +116,8 @@ void Mesh::InitMesh(unsigned int Index, const aiMesh* paiMesh)
 
 bool Mesh::InitMaterials(const aiScene* pScene, const std::string& Filename)
 {
-    // Извлекаем директорию из полного имени файла
-    std::string::size_type SlashIndex = Filename.find_last_of("/");
+    // ��������� ���������� �� ������� ����� �����
+    std::string::size_type SlashIndex = Filename.find_last_of("\\");
     std::string Dir;
 
     if (SlashIndex == std::string::npos) {
@@ -132,7 +132,7 @@ bool Mesh::InitMaterials(const aiScene* pScene, const std::string& Filename)
 
     bool Ret = true;
 
-    // Инициализируем материал
+    // �������������� ��������
     for (unsigned int i = 0; i < pScene->mNumMaterials; i++) {
         const aiMaterial* pMaterial = pScene->mMaterials[i];
 
@@ -154,10 +154,10 @@ bool Mesh::InitMaterials(const aiScene* pScene, const std::string& Filename)
             }
         }
 
-        // Загружаем белую текстуру если модель не имеет собственной
-        // В этом уроке данный фукнционал - рудимент
-        /*if (!m_Textures[i]){
-            m_Textures[i] = new Texture(GL_TEXTURE_2D, "./white.png");
+        // ��������� ����� �������� ���� ������ �� ����� �����������
+        // � ���� ����� ������ ���������� - ��������
+        /*if (!m_Textures[i]) {
+            m_Textures[i] = new Texture(GL_TEXTURE_2D, "C:/Users/vadim_25/Downloads/zen2.png");
             Ret = m_Textures[i]->Load();
         }*/
     }

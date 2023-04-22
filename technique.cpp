@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <string.h>
 
 #include "technique.h"
@@ -29,7 +29,7 @@ bool Technique::Init() {
     return true;
 }
 
-//Используем этот метод для добавления шейдеров в программу. Когда заканчиваем - вызываем finalize()
+//���������� ���� ����� ��� ���������� �������� � ���������. ����� ����������� - �������� finalize()
 bool Technique::AddShader(GLenum ShaderType, const char* pShaderText) {
     GLuint ShaderObj = glCreateShader(ShaderType);
 
@@ -38,7 +38,7 @@ bool Technique::AddShader(GLenum ShaderType, const char* pShaderText) {
         return false;
     }
 
-    // Сохраним объект шейдера - он будет удален в декструкторе
+    // �������� ������ ������� - �� ����� ������ � ������������
     m_shaderObjList.push_back(ShaderObj);
 
     const GLchar* p[1];
@@ -64,8 +64,8 @@ bool Technique::AddShader(GLenum ShaderType, const char* pShaderText) {
     return true;
 }
 
-// После добавления всех шейдеров в программу вызываем эту функцию
-// для линковки и проверки программу на ошибки
+// ����� ���������� ���� �������� � ��������� �������� ��� �������
+// ��� �������� � �������� ��������� �� ������
 bool Technique::Finalize() {
     GLint Success = 0;
     GLchar ErrorLog[1024] = { 0 };
@@ -87,7 +87,7 @@ bool Technique::Finalize() {
         return false;
     }
 
-    // Удаляем промежуточные объекты шейдеров, которые были добавлены в программу
+    // ������� ������������� ������� ��������, ������� ���� ��������� � ���������
     for (ShaderObjList::iterator it = m_shaderObjList.begin(); it != m_shaderObjList.end(); it++) {
         glDeleteShader(*it);
     }

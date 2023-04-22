@@ -1,13 +1,12 @@
-
 #ifndef MATH_3D_H
 #define	MATH_3D_H
 
 #include <stdio.h>
 #include <math.h>
 
-#define ToRadian(x) ((x) * M_PI / 180.0f)
-#define ToDegree(x) ((x) * 180.0f / M_PI)
-const double M_PI = 3.14;
+#define ToRadian(x) ((x) * 3.14f / 180.0f)
+#define ToDegree(x) ((x) * 180.0f / 3.14f)
+
 struct Vector2i
 {
     int x;

@@ -17,6 +17,7 @@ void main()                                                                     
     TexCoordOut = TexCoord;                                                         \n\
 }";
 
+/*Это фрагментный шейдер, который используется для отображения карты теней в рендере*/
 static const char* pFS = "                                                          \n\
 #version 330                                                                        \n\
                                                                                     \n\
@@ -74,4 +75,3 @@ void ShadowMapTechnique::SetTextureUnit(unsigned int TextureUnit)
 {
     glUniform1i(m_textureLocation, TextureUnit);
 }
-
